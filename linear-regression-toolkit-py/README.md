@@ -1,35 +1,76 @@
-# Linear Regression Toolkit
+# Regression Toolkit Functions
 
-**Description:**
+Author: Garry Singh
 
-This toolkit library provides a set of functions for implementing simple linear regression. Linear regression is a widely used method for modeling the relationship between a dependent variable (target) and one or more independent variables (features). This library is focused on simple linear regression, which deals with a single independent variable and a single dependent variable. It includes functions for making predictions, computing the cost function, and performing gradient descent to optimize model parameters.
+This is a toolkit library for standard linear regression functions. It includes functions for predicting dependent variable values, calculating cost functions, derivatives of weights and bias, and performing gradient descent.
 
-**Table of Contents:**
+## Functions
 
-- [Usage](#usage)
-- [Functions](#functions)
-- [Example Usage](#example-usage)
-- [Notes](#notes)
+### `compute_dep_var(x, w, b)`
 
-## Usage
+Predicts the dependent variable values.
 
-This library contains the following functions:
+- Args:
+  - `x` (ndarray): Independent feature training data.
+  - `w` (ndarray): Weight parameter.
+  - `b` (float): Bias parameter.
 
-1. `compute_dep_var(x, w, b)`
+- Returns:
+  - `ndarray`: Predicted dependent variable values.
 
-   This function computes the dependent variable's predicted values based on the input independent feature data `x`, weight parameter `w`, and bias parameter `b`. It returns an array of predicted values.
+### `compute_cost_fn(x, y, w, b)`
 
-2. `compute_cost_fn(x, y, w, b)`
+Calculates the cost function.
 
-   This function calculates the cost function, which represents the error in the model's predictions. It uses the sum of squared errors between predicted and actual dependent variable values.
+- Args:
+  - `x` (ndarray): Independent feature training data.
+  - `y` (ndarray): Computed/dependent feature training data.
+  - `w` (ndarray): Weight parameter.
+  - `b` (float): Bias parameter.
 
-3. `compute_deriv_fn(x, y, w, b)`
+- Returns:
+  - `float`: Cost function value.
 
-   This function computes the derivatives of the weight and bias parameters, which are used in gradient descent to update the model parameters.
+### `compute_deriv_fn(x, y, w, b)`
 
-4. `compute_gradient_descent(x, y, n, a, w, b)`
+Computes the derivatives of weight and bias.
 
-   This function performs gradient descent to optimize the weight and bias parameters for the linear regression model. It returns the final optimized weight and bias, as well as a history of cost function values over iterations.
+- Args:
+  - `x` (ndarray): Independent feature training data.
+  - `y` (ndarray): Computed/dependent feature training data.
+  - `w` (ndarray): Weight parameter.
+  - `b` (float): Bias parameter.
+
+- Returns:
+  - `ndarray`: Derivative of weights.
+  - `float`: Derivative of bias.
+
+### `compute_gradient_descent(x, y, n, a, w, b)`
+
+Computes gradient descent based on a specific number of iterations with a history of the cost function.
+
+- Args:
+  - `x` (ndarray): Independent feature training data.
+  - `y` (ndarray): Computed/dependent feature training data.
+  - `n` (int): Number of iterations.
+  - `a` (float): Learning rate.
+  - `w` (ndarray): Weight parameter.
+  - `b` (float): Bias parameter.
+
+- Returns:
+  - `ndarray`: Updated weight parameter.
+  - `float`: Updated bias parameter.
+  - `ndarray`: History of cost function values for each iteration.
+
+### `compute_feature_scaling(x)`
+
+Performs feature scaling using Z score normalization.
+
+- Args:
+  - `x` (ndarray): Input data.
+
+- Returns:
+  - `ndarray`: Scaled input data.
 
 ## Example Usage
 
